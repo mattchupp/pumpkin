@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "auth0": "^2.25.1",
+    "auth0-js": "^9.13.2",
     "next": "9.4.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "swr": "^0.2.2"
+    "swr": "^0.2.2",
+    "use-auth0-hooks": "^0.7.0"
   }
 }
