@@ -16,9 +16,13 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Pumpkin | Home</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <ul>
+         {data.tickets.map((ticket) => (
+           <li key={ticket.id}>{ticket.ticket_title}</li>
+         ))}
+       </ul>
 
     </div>
   )
