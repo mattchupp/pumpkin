@@ -24,6 +24,14 @@ let tickets = [
   ticket_creator: 'Marty Byrd',
   ticket_owner: 'Matt C',
   ticket_status: 'Open'
+},
+{
+  id: '4',
+  ticket_title: 'Bug 3',
+  ticket_description: 'It\'s not working!',
+  ticket_creator: 'Beth Something',
+  ticket_owner: 'Matt C',
+  ticket_status: 'Open'
 }
 ]
 
