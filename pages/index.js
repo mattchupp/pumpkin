@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import useSWR from 'swr'
+import Ticket from '../components/Ticket'
 
 export default function Home() {
 
@@ -18,11 +19,15 @@ export default function Home() {
         <title>Pumpkin | Home</title>
       </Head>
 
-      <ul>
-         {data.tickets.map((ticket) => (
-           <li key={ticket.id}>{ticket.ticket_title}</li>
-         ))}
-       </ul>
+
+       {data.tickets.map((ticket) => (
+          <Ticket
+            title={ticket.ticket_title}
+            description={ticket.ticket_description}
+            creator={ticket.ticket_creator}
+          />
+       ))}
+
 
     </div>
   )
