@@ -1,5 +1,3 @@
-import react from 'React'
-
 export default function Ticket(props) {
   return(
     <div>
