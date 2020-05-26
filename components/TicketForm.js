@@ -1,5 +1,6 @@
-import { Component } from 'react';
+import { react, Component } from 'react';
 import Head from 'next/head';
+import useSWR, { mutate } from 'swr';
 
 
 class TicketForm extends Component {
@@ -15,6 +16,7 @@ class TicketForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   //  submitTicket = (data) => {
   //   fetch('http://localhost:4000/tickets', {
   //     method: 'post',
@@ -27,6 +29,17 @@ class TicketForm extends Component {
   //     res.status === 200
   //   })
   // }
+
+  static async getInitialProps(ctx) {
+
+    const res = await fetch('http://localhost:4000/tickets')
+    const json = await res.json()
+
+    console.log(json)
+
+    // return {allTickets: json.data }
+
+  }
 
 
 
@@ -44,6 +57,18 @@ class TicketForm extends Component {
 
   handleSubmit(event) {
 
+    // fetch('http://localhost:4000/tickets'), {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     ticket_title: this.state.ticketTitle,
+    //     ticket_creator: this.state.ticketCreator,
+    //     ticket_description: this.state.ticketDescription
+    //   })
+    // }
 
     alert('Posted! ' + this.state.ticketTitle + ' by ' + this.state.ticketCreator);
     event.preventDefault();
@@ -52,46 +77,49 @@ class TicketForm extends Component {
 
 
   render() {
-    return(
+    return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          name="ticketTitle"
-          type="text"
-          placeholder="Ticket Title"
-          value={this.state.ticketTitle}
-          onChange={this.handleChange}
-          required
-        />
-        <br/> <br />
-        <input
-          name="ticketCreator"
-          type="text"
-          placeholder="Email"
-          value={this.state.ticketCreator}
-          onChange={this.handleChange}
-          required
-        />
-        <br/> <br />
-        <textarea
-          name="ticketDescription"
-          row="80"
-          col="40"
-          placeholder="Ticket Description"
-          value={this.state.ticketDescription}
-          onChange={this.handleChange}
-          required
-        >
-        </textarea>
-        <br/> <br />
-        <input
-          type="submit"
-          value="Submit"
-        />
+        <div className="form-group">
+          <input
+            name="ticketTitle"
+            type="text"
+            placeholder="Ticket Title"
+            value={this.state.ticketTitle}
+            onChange={this.handleChange}
+            required
+          />
+          <br/> <br />
+          <input
+            name="ticketCreator"
+            type="text"
+            placeholder="Email"
+            value={this.state.ticketCreator}
+            onChange={this.handleChange}
+            required
+          />
+          <br/> <br />
+          <textarea
+            name="ticketDescription"
+            row="80"
+            col="40"
+            placeholder="Ticket Description"
+            value={this.state.ticketDescription}
+            onChange={this.handleChange}
+            required
+          >
+          </textarea>
+          <br/> <br />
+          <input
+            type="submit"
+            value="Submit"
+          />
+        </div>
       </form>
     )
   }
 
 }
+
 
 
 export default TicketForm
