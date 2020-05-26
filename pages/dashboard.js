@@ -32,7 +32,7 @@ export default function Home() {
     return (
       <div className="container">
         <Head>
-          <title>Pumpkin | Home</title>
+          <title>Pumpkin | Dashboard</title>
         </Head>
         <p>Signed in as {user.name}</p>
 
