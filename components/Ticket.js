@@ -4,6 +4,7 @@ export default function Ticket(props) {
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <p>{props.creator}</p>
+      <p>{props.status}</p>
     </div>
   )
 }

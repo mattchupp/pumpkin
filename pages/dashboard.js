@@ -42,6 +42,7 @@ export default function Home() {
             title={ticket.ticket_title}
             description={ticket.ticket_description}
             creator={ticket.ticket_creator}
+            status={ticket.ticket_status}
           />
         ))}
       </div>
