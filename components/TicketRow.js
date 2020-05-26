@@ -3,6 +3,7 @@ export default function TicketRowd(props) {
     <tr>
       <th>{props.title}</th>
       <td>{props.description}</td>
+      <td>{props.assignee}</td>
       <td>{props.creator}</td>
       <td>{props.status}</td>
     </tr>

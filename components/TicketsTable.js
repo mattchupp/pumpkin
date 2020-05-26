@@ -23,6 +23,7 @@ export default function TicketTable(props) {
         <tr>
           <th>Ticket Title</th>
           <th>Short Description</th>
+          <th>Assignee</th>
           <th>Creator</th>
           <th>Status</th>
         </tr>
@@ -34,6 +35,7 @@ export default function TicketTable(props) {
             title={ticket.ticket_title}
             description={ticket.ticket_description}
             creator={ticket.ticket_creator}
+            assignee={ticket.ticket_owner}
             status={ticket.ticket_status}
           />
         ))}
