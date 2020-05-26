@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import useSWR from 'swr';
-import Ticket from '../components/Ticket';
+import TicketsTable from '../components/TicketsTable.js'
+
+
 import { UserProvider, useFetchUser } from '../utils/user';
 
 
@@ -11,16 +12,7 @@ export default function Home() {
   console.log(user, loading);
 
 
-  /* Fetch tickets */
-  const fetcher = (url) => fetch(url).then((res) => res.json())
 
-  // const { data, error } = useSWR('/api/tickets', fetcher)
-  const { data, error } = useSWR('http://localhost:4000/tickets', fetcher)
-
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
-
-  console.log(data)
 
 
   /*
@@ -33,18 +25,17 @@ export default function Home() {
       <div className="container">
         <Head>
           <title>Pumpkin | Dashboard</title>
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+          />
         </Head>
         <p>Signed in as {user.name}</p>
 
-        {data.map((ticket) => (
-          <Ticket
-            key={ticket._id}
-            title={ticket.ticket_title}
-            description={ticket.ticket_description}
-            creator={ticket.ticket_creator}
-            status={ticket.ticket_status}
-          />
-        ))}
+        <TicketsTable />
+
       </div>
     )
   } else {
