@@ -29,15 +29,18 @@ class TicketForm extends Component {
   }
 
   handleChange(event) {
+
     this.setState({
-      ticketTitle: event.target.ticketTitle,
-      ticketCreator: event.target.ticketCreator
+      ...this.state,
+      [event.target.name]: event.target.value
     })
   }
 
   handleSubmit(event) {
-    // this.submitTicket()
-    console.log('Form Submitted! ' + this.state.ticketTitle + ' ' + this.state.ticketDescription)
+  
+    console.log('Form Updated! ' + this.state.ticketTitle)
+    console.log(this.state.ticketCreator)
+    console.log(this.state.ticketDescription)
   }
 
 
@@ -45,7 +48,7 @@ class TicketForm extends Component {
     return(
       <form onSubmit={this.handleSubmit()}>
         <input
-          name="ticket_title"
+          name="ticketTitle"
           type="text"
           placeholder="Ticket Title"
           value={this.state.ticketTitle}
@@ -53,18 +56,20 @@ class TicketForm extends Component {
         />
         <br/> <br />
         <input
-          name="ticket_creator"
+          name="ticketCreator"
           type="text"
           placeholder="Email"
           value={this.state.ticketCreator}
+          onChange={this.handleChange}
         />
         <br/> <br />
         <textarea
-          name="ticket_description"
+          name="ticketDescription"
           row="80"
           col="40"
           placeholder="Ticket Description"
           value={this.state.ticketDescription}
+          onChange={this.handleChange}
         >
         </textarea>
         <br/> <br />
