@@ -1,18 +1,13 @@
 import Head from 'next/head';
 import TicketsTable from '../components/TicketsTable.js'
-
-
 import { UserProvider, useFetchUser } from '../utils/user';
 
 
-export default function Home() {
+export default function Dashboard() {
 
   /* authenticate user */
   const { user, loading } = useFetchUser();
   console.log(user, loading);
-
-
-
 
 
   /*
