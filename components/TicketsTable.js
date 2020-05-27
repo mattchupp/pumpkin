@@ -25,11 +25,11 @@ export default function TicketTable(props) {
 
 
   return (
-    <table className="table table-striped table-bordered">
+    <table className="table table-striped table-bordered mt-3">
       <thead className="thead-dark">
         <tr>
-          <th>Ticket Title</th>
-          <th>Short Description</th>
+          <th>Title</th>
+          <th>Description</th>
           <th>Assignee</th>
           <th>Creator</th>
           <th>Status</th>
