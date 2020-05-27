@@ -21,8 +21,14 @@ export default function TicketTable(props) {
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
-  console.log(data)
+  // console.log(data)
 
+  /* Filtering out completed tickets */
+  let filteredTickets = data.filter((ticket) => {
+    return ticket.ticket_status.indexOf('Open') !== -1;
+  })
+
+  // console.log(filteredTickets)
 
   return (
     <table className="table table-striped table-bordered mt-3">
@@ -37,7 +43,7 @@ export default function TicketTable(props) {
         </tr>
       </thead>
       <tbody>
-        {data.map((ticket) => (
+        {filteredTickets.map((ticket) => (
           <TicketRow
             key={ticket._id}
             title={ticket.ticket_title}
