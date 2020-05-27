@@ -2,6 +2,7 @@ import Head from 'next/head';
 import TicketsTable from '../components/TicketsTable.js';
 import { UserProvider, useFetchUser } from '../utils/user';
 import NavBar from '../components/NavBar.js';
+import TicketView from '../components/TicketView';
 
 
 export default function Dashboard() {
@@ -37,6 +38,8 @@ export default function Dashboard() {
 
         <div className="container">
           <TicketsTable />
+
+          <TicketView />
         </div>
 
       </div>
