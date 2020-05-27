@@ -1,5 +1,8 @@
-export default function TicketRowd(props) {
-  return(
+/*
+ * Component for each row in the tickets table
+*/
+export default function TicketRow(props) {
+  return (
     <tr>
       <th>{props.title}</th>
       <td>{props.description}</td>
