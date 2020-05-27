@@ -6,11 +6,11 @@ import useSWR from 'swr';
 
 export default function TicketView(props) {
 
-  // const id = '5ecdb5a7f703f6027412ce08';
+  const id = props.id;
   // Take api link and add id from props id
-  const api = 'http://localhost:4000/tickets/' + props.id;
+  const api = 'http://localhost:4000/tickets/' + id;
 
-  console.log(api);
+  // console.log(api);
 
   // Fetch tickets
   const fetcher = (url) => fetch(url).then((res) => res.json())
@@ -20,19 +20,12 @@ export default function TicketView(props) {
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
-  console.log(data)
-
-  // const getTicketById = data.filter((ticket) => {
-  //   if(data._id === '5ecdb8e5f703f6027412ce09') {
-  //     console.log(data)
-  //   }
-  // })
+  // console.log(data)
 
   return (
     <div>
-  
-        {data.ticket_title}
-           
+      <h3>{data.ticket_title}</h3>
+      <p>{data.ticket_description}</p>      
     </div>
   )
 }
