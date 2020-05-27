@@ -1,17 +1,27 @@
+import react, { Component } from 'react'
+
 /*
  * Component for each row in the tickets table
 */
-export default function TicketRow(props) {
+class TicketRow extends Component {
   // const formattedDate = props.date;
+  // function handleClick(event) {
+  //   alert('Clicked!')
+  // }
+  render() {
+    return (
+      <tr>
+        <th>{this.props.title}</th>
+        <td>{this.props.description}</td>
+        <td>{this.props.assignee}</td>
+        <td>{this.props.creator}</td>
+        <td>{this.props.date}</td>
+        <td>{this.props.status}</td>
+      </tr>
+    )
+  }
   
-  return (
-    <tr>
-      <th>{props.title}</th>
-      <td>{props.description}</td>
-      <td>{props.assignee}</td>
-      <td>{props.creator}</td>
-      <td>{props.date}</td>
-      <td>{props.status}</td>
-    </tr>
-  )
 }
+
+
+export default TicketRow
