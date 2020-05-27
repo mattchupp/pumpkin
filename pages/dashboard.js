@@ -36,7 +36,7 @@ export default function Dashboard() {
 
         <NavBar user={user.name}/>
 
-        <div className="container">
+        <div className="container-fluid">
           <TicketsTable />
 
           <TicketView />

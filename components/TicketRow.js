@@ -8,6 +8,7 @@ export default function TicketRow(props) {
       <td>{props.description}</td>
       <td>{props.assignee}</td>
       <td>{props.creator}</td>
+      <td>{props.date}</td>
       <td>{props.status}</td>
     </tr>
   )
