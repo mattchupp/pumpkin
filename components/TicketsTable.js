@@ -4,10 +4,12 @@ import TicketRow from './TicketRow';
 import useSWR from 'swr';
 
 export default function TicketTable(props) {
-  // const fetcher = (url) => fetch(url).then((res) => res.json())
-  // const initialData = props.data
-  // const { data } = useSWR('http://localhost:4000/tickets', fetcher, { initialData })
-  // console.log(data)
+
+/*
+  const fetcher = (url) => fetch(url).then((res) => res.json())
+  const initialData = props.data
+  const { data, error } = useSWR('http://localhost:4000/tickets', fetcher, { initialData })
+*/
 
 
   // Fetch tickets
@@ -49,11 +51,31 @@ export default function TicketTable(props) {
   )
 }
 
-// export async function getServerSideProps() {
-//   const data = await fetcher('https://localhost:4000/tickets', fetcher)
-//   return { props: {data } }
-// }
 
+
+/*
+export async function getServerSideProps() {
+  const data = await fetcher('https://localhost:4000/tickets', fetcher)
+  return { props: {data } }
+}
+*/
+
+/*
+
+{data.map((ticket) => (
+  <TicketRow
+    key={ticket._id}
+    title={ticket.ticket_title}
+    description={ticket.ticket_description}
+    creator={ticket.ticket_creator}
+    assignee={ticket.ticket_owner}
+    status={ticket.ticket_status}
+  />
+))}
+
+
+
+*/
 
 /*
 
