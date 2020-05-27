@@ -36,7 +36,7 @@ export default function Dashboard() {
         <div className="container-fluid">
           <TicketsTable />
 
-          <TicketView />
+          <TicketView id="5ecdb5a7f703f6027412ce08"/>
         </div>
 
       </div>
