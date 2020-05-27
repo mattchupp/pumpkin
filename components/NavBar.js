@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function NavBar(props) {
   return (
     <nav className="navbar bg-dark navbar-dark">
-      <Link href="/"><a className="navbar-brand">Pumpkin</a></Link>
+      <Link href="/dashboard"><a className="navbar-brand">Pumpkin</a></Link>
       <div className="d-flex justify-content-end" id="navbarNavDropdown">
         <ul className="navbar-nav">   
           <li className="nav-item nav-link">{props.user}</li>
