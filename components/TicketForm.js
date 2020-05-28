@@ -17,42 +17,11 @@ class TicketForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  //  submitTicket = (data) => {
-  //   fetch('http://localhost:4000/tickets', {
-  //     method: 'post',
-  //     headers: {
-  //       'Accept': 'application/json, text/plain, */*',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(data)
-  //   }).then((res) => {
-  //     res.status === 200
-  //   })
-  // }
-
-  /*
-  static async getInitialProps(ctx) {
-
-    const res = await fetch('http://localhost:4000/tickets')
-    const json = await res.json()
-
-    console.log(json)
-
-    // return {allTickets: json.data }
-
-  }
-  */
-
-
   /*
     When each input on the form is changed call this function and update the state
     with what is being entered
   */
   handleChange(event) {
-    // console.log('Form Updated! ' + this.state.ticketTitle)
-    // console.log(this.state.ticketCreator)
-    // console.log(this.state.ticketDescription)
 
     // gets state then sets each names value to the value in the form
     this.setState({
