@@ -10,15 +10,31 @@ class TicketView extends Component {
   constructor() {
     super(); 
     this.state = {
-      ticket: []
+      ticketTitle: '',
+      ticketDescription: '',
+      ticketOwner: '',
+      ticketCreator: '',
+      ticketStatus: '',
+      ticketDate: ''
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/tickets/' + this.props.id)
+    let apiCall = 'http://localhost:4000/tickets/' + this.props.id;
+    
+    axios.get(apiCall)
     .then(response => {
-      // console.log(response)
-      this.setState({ ticket: response })
+      // console.log(response);
+      // this.setState({ ticketTitle: 'test'})
+      // this.setState({ ticketTitle: response.data })
+      let ticketResponse = { ...this.state };
+      ticketResponse.ticketTitle = response.data.ticket_title;
+      ticketResponse.ticketDescription = response.data.ticket_description;
+      ticketResponse.ticketOwner = response.data.ticket_owner;
+      ticketResponse.ticketCreator = response.data.ticket_creator;
+      ticketResponse.ticketStatus = response.data.ticket_status;
+      // console.log(ticketResponse)
+      this.setState({ ...ticketResponse })
     })
     .catch(error => {
       console.log(error)
@@ -27,11 +43,16 @@ class TicketView extends Component {
 
 
   render() {
-    console.log(this.state.ticket)
-    
+    // console.log(this.state.ticket)
+
     return (
       <div>
-      
+        <hr />
+        <h2>{this.state.ticketTitle}</h2>
+        <p>{this.state.ticketDescription}</p>
+        <p>{this.state.ticketOwner}</p>
+        <p>{this.state.ticketCreator}</p>
+        <p>{this.state.ticketStatus}</p>
       </div>
     )
   }
