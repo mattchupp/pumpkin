@@ -85,7 +85,7 @@ class TicketForm extends Component {
             <input
               className="form-control"
               name="ticketCreator"
-              type="text"
+              type="email"
               placeholder="Email"
               value={this.state.ticketCreator}
               onChange={this.handleChange}
