@@ -19,14 +19,19 @@ class TicketView extends Component {
     }
   }
 
+
+  // When component mounts get ticket information with ID that is passed through props.id
+  // Update each item in state with item from json
+  // This is setting up the ability to post updated data, and change state for each item when 
+  // editing them
   componentDidMount() {
+
     let apiCall = 'http://localhost:4000/tickets/' + this.props.id;
     
     axios.get(apiCall)
     .then(response => {
-      // console.log(response);
-      // this.setState({ ticketTitle: 'test'})
-      // this.setState({ ticketTitle: response.data })
+
+      // Set state of each item
       let ticketResponse = { ...this.state };
       ticketResponse.ticketTitle = response.data.ticket_title;
       ticketResponse.ticketDescription = response.data.ticket_description;
