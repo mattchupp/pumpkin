@@ -1,6 +1,9 @@
 /* Show the tickets in a table */
 
+/* Show the tickets in a table */
+
 import TicketRow from './TicketRow';
+import TicketView from '../components/TicketView';
 import useSWR from 'swr';
 
 export default function TicketTable(props) {
@@ -31,72 +34,38 @@ export default function TicketTable(props) {
   // console.log(filteredTickets)
 
   return (
-    <table className="table table-striped table-bordered mt-3">
-      <thead className="thead-dark">
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Assignee</th>
-          <th>Creator</th>
-          <th>Date Created</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredTickets.map((ticket) => (
-          <TicketRow
-            key={ticket._id}
-            title={ticket.ticket_title}
-            description={ticket.ticket_description}
-            creator={ticket.ticket_creator}
-            assignee={ticket.ticket_owner}
-            date={ticket.date_created}
-            status={ticket.ticket_status}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <table className="table table-striped table-bordered mt-3">
+        <thead className="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Assignee</th>
+            <th>Creator</th>
+            <th>Date Created</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          {filteredTickets.map((ticket) => (
+            <TicketRow
+              key={ticket._id}
+              title={ticket.ticket_title}
+              description={ticket.ticket_description}
+              creator={ticket.ticket_creator}
+              assignee={ticket.ticket_owner}
+              date={ticket.date_created}
+              status={ticket.ticket_status}
+            />
+          ))}
+          
+        </tbody>
+      </table>
+
+      <TicketView id="5ecdb5a7f703f6027412ce08"/>
+    </div>
   )
 }
 
 
-
-/*
-export async function getServerSideProps() {
-  const data = await fetcher('https://localhost:4000/tickets', fetcher)
-  return { props: {data } }
-}
-*/
-
-/*
-
-{data.map((ticket) => (
-  <TicketRow
-    key={ticket._id}
-    title={ticket.ticket_title}
-    description={ticket.ticket_description}
-    creator={ticket.ticket_creator}
-    assignee={ticket.ticket_owner}
-    status={ticket.ticket_status}
-  />
-))}
-
-
-
-*/
-
-/*
-
-export async function getServerSideProps() {
-  const data = await fetcher('/api/data')
-  return { props: { data } }
-}
-
-function App (props) {
-  const initialData = props.data
-  const { data } = useSWR('/api/data', fetcher, { initialData })
-
-  return <div>{data}</div>
-}
-
-*/

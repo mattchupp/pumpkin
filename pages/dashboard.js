@@ -2,7 +2,6 @@ import Head from 'next/head';
 import TicketsTable from '../components/TicketsTable.js';
 import { UserProvider, useFetchUser } from '../utils/user';
 import NavBar from '../components/NavBar.js';
-import TicketView from '../components/TicketView';
 import Link from 'next/link'
 
 
@@ -36,7 +35,6 @@ export default function Dashboard() {
         <div className="container-fluid">
           <TicketsTable />
 
-          <TicketView id="5ecdb5a7f703f6027412ce08"/>
         </div>
 
       </div>
