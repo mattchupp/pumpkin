@@ -1,15 +1,15 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import TicketForm from '../components/TicketForm'
 
 
-export default function Home() {
+export default function NewTicket() {
 
 
     return (
       <div>
         <div className="container">
           <Head>
-            <title>Pumpkin | Home</title>
+            <title>Pumpkin | New Ticket</title>
             <link
               rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -17,8 +17,10 @@ export default function Home() {
               crossOrigin="anonymous"
             />
           </Head>
-          
-          <p className="text-center mt-3">Please <Link href="/api/login"><a>Sign In</a></Link></p>
+
+          <br />
+
+          <TicketForm />
 
         </div>
       </div>
