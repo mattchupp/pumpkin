@@ -1,6 +1,7 @@
 import { react, Component } from 'react';
 import Head from 'next/head';
-import useSWR, { mutate } from 'swr';
+// import useSWR, { mutate } from 'swr';
+import axios from 'axios';
 
 
 class TicketForm extends Component {
@@ -30,6 +31,7 @@ class TicketForm extends Component {
   //   })
   // }
 
+  /*
   static async getInitialProps(ctx) {
 
     const res = await fetch('http://localhost:4000/tickets')
@@ -40,13 +42,17 @@ class TicketForm extends Component {
     // return {allTickets: json.data }
 
   }
+  */
 
 
-
+  /*
+    When each input on the form is changed call this function and update the state
+    with what is being entered
+  */
   handleChange(event) {
-    console.log('Form Updated! ' + this.state.ticketTitle)
-    console.log(this.state.ticketCreator)
-    console.log(this.state.ticketDescription)
+    // console.log('Form Updated! ' + this.state.ticketTitle)
+    // console.log(this.state.ticketCreator)
+    // console.log(this.state.ticketDescription)
 
     // gets state then sets each names value to the value in the form
     this.setState({
@@ -56,22 +62,25 @@ class TicketForm extends Component {
   }
 
   handleSubmit(event) {
-
-    // fetch('http://localhost:4000/tickets'), {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     ticket_title: this.state.ticketTitle,
-    //     ticket_creator: this.state.ticketCreator,
-    //     ticket_description: this.state.ticketDescription
-    //   })
-    // }
-
-    alert('Posted! ' + this.state.ticketTitle + ' by ' + this.state.ticketCreator);
     event.preventDefault();
+    let postData = {
+      'ticket_title': this.state.ticketTitle,
+      'ticket_creator': this.state.ticketCreator,
+      'ticket_description': this.state.ticketDescription
+    }
+
+    console.log(postData);
+
+
+    axios.post('http://localhost:4000/tickets', postData)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+    // alert('Posted! ' + this.state.ticketTitle + ' by ' + this.state.ticketCreator);
 
   }
 
