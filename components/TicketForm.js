@@ -2,6 +2,7 @@ import { react, Component } from 'react';
 import Head from 'next/head';
 // import useSWR, { mutate } from 'swr';
 import axios from 'axios';
+import Router from 'next/router';
 
 
 class TicketForm extends Component {
@@ -45,13 +46,16 @@ class TicketForm extends Component {
     // console.log(postData);
 
     // post object to the /tickets endpoint
+    // after successful submit redirect to a success page
     axios.post('http://localhost:4000/tickets', postData)
       .then(response => {
         console.log(response)
+        Router.push('/success')
       })
       .catch(error => {
         console.log(error)
       })
+    
 
   }
 
