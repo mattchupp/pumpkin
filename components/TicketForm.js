@@ -57,44 +57,59 @@ class TicketForm extends Component {
 
 
   render() {
+    const formStyle = {
+      'maxWidth': '500px',
+      'margin': '0px auto'
+    }
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <input
-            name="ticketTitle"
-            type="text"
-            placeholder="Ticket Title"
-            value={this.state.ticketTitle}
-            onChange={this.handleChange}
-            required
-          />
-          <br/> <br />
-          <input
-            name="ticketCreator"
-            type="text"
-            placeholder="Email"
-            value={this.state.ticketCreator}
-            onChange={this.handleChange}
-            required
-          />
-          <br/> <br />
-          <textarea
-            name="ticketDescription"
-            row="80"
-            col="40"
-            placeholder="Ticket Description"
-            value={this.state.ticketDescription}
-            onChange={this.handleChange}
-            required
-          >
-          </textarea>
-          <br/> <br />
-          <input
-            type="submit"
-            value="Submit"
-          />
-        </div>
-      </form>
+      <div style={formStyle} className="card">
+        <h2 className="card-header">New Ticket</h2>
+        <form className="card-body" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <input
+              className="form-control"
+              name="ticketTitle"
+              type="text"
+              placeholder="Ticket Title"
+              value={this.state.ticketTitle}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              className="form-control"
+              name="ticketCreator"
+              type="text"
+              placeholder="Email"
+              value={this.state.ticketCreator}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <textarea
+              className="form-control"
+              name="ticketDescription"
+              row="80"
+              col="40"
+              placeholder="Ticket Description"
+              value={this.state.ticketDescription}
+              onChange={this.handleChange}
+              required
+            >
+            </textarea>
+          </div>
+          <div className="form-group">
+            <input
+              className="btn btn-primary"
+              type="submit"
+              value="Submit"
+            />
+          </div>
+        </form>
+      </div>
     )
   }
 
