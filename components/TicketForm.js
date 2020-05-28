@@ -63,15 +63,19 @@ class TicketForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    // Because this.state isn't the same schema as the db
+    // this creates an object matching the schema to post
+    // create this object then pass it to the post request
     let postData = {
       'ticket_title': this.state.ticketTitle,
       'ticket_creator': this.state.ticketCreator,
       'ticket_description': this.state.ticketDescription
     }
 
-    console.log(postData);
+    // console.log(postData);
 
-
+    // post object to the /tickets endpoint
     axios.post('http://localhost:4000/tickets', postData)
       .then(response => {
         console.log(response)
@@ -79,8 +83,6 @@ class TicketForm extends Component {
       .catch(error => {
         console.log(error)
       })
-
-    // alert('Posted! ' + this.state.ticketTitle + ' by ' + this.state.ticketCreator);
 
   }
 
