@@ -11,6 +11,7 @@ import React, { Component } from 'react';
  [x] Change this from functional to class component
  [x] Change from swr to axios and get json when component mounts
  [ ] Allow each row to be selected and pass the id to ticketview
+ [ ] Filtering buttons 
 */
 
 class TicketsTable extends Component {
@@ -19,10 +20,13 @@ class TicketsTable extends Component {
     super();
     this.state = {
       ticketsTable: [],
-      viewTicket: '5ecdb5a7f703f6027412ce08'
+      viewTicket: '5ecdb5a7f703f6027412ce08',
+      filterBy: 'Open'
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.filterByOpen = this.filterByOpen.bind(this);
+    this.filterByComplete = this.filterByComplete.bind(this);
   }
 
 
@@ -44,16 +48,27 @@ class TicketsTable extends Component {
     alert('Hello, you clicked!')
   }
 
+  filterByOpen(event) {
+    this.setState({ filterBy: 'Open'});
+    // console.log('pressed')
+  }
+
+  filterByComplete(event) {
+    this.setState({ filterBy: 'Complete'});
+  }
+
   render() {
-    let ticketsTable = this.state.ticketsTable
+    let ticketsTable = this.state.ticketsTable;
     // console.log(ticketsTable)
 
     let filteredTickets = ticketsTable.filter((ticket) => {
-      return ticket.ticket_status.indexOf('Open') !== -1;
+      return ticket.ticket_status.indexOf(this.state.filterBy) !== -1;
     })
 
     return (
       <div>
+        <button onClick={this.filterByOpen}>Open</button>
+        <button onClick={this.filterByComplete}>Complete</button>
         <table className="table table-striped table-bordered mt-3">
           <thead className="thead-dark">
             <tr>
