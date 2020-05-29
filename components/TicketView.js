@@ -114,7 +114,7 @@ class TicketView extends Component {
       return (
         <div>
           <hr />
-          <button onClick={this.toggleEditing}>Edit</button>
+          <button className="btn btn-primary" onClick={this.toggleEditing}>Edit</button>
           <div className="mb-3"></div>
           <h2>{this.state.ticketTitle}</h2>
           <p>{this.state.ticketDescription}</p>
@@ -127,7 +127,7 @@ class TicketView extends Component {
       return (
         <div>
           <hr />
-          <button onClick={this.toggleEditing}>Done Editing</button>
+          <button className="btn btn-primary" onClick={this.toggleEditing}>Done Editing</button>
           <form className="card-body" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Title</label>
