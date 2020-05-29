@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 /* TODO
  [x] Change this from functional to class component
  [x] Change from swr to axios and get json when component mounts
- [ ] Allow each row to be selected and pass the id to ticketview
+ [x] Allow each row to be selected and pass the id to ticketview
  [x] Filtering buttons 
 */
 
