@@ -166,7 +166,7 @@ class TicketView extends Component {
             </div>
             <div className="form-group">
               <label>Status</label>
-              <input
+              <select
                 className="form-control"
                 name="ticketStatus"
                 type="text"
@@ -174,7 +174,10 @@ class TicketView extends Component {
                 value={this.state.ticketStatus}
                 onChange={this.handleChange} 
                 required     
-              />
+              >
+                <option>Open</option>
+                <option>Complete</option>
+              </select>
             </div>
             <div className="form-group">
             <label>Description</label>
