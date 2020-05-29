@@ -145,10 +145,11 @@ class TicketView extends Component {
               <input
                 className="form-control"
                 name="ticketCreator"
-                type="t"
+                type="email"
                 placeholder="Email"
                 value={this.state.ticketCreator}
-                onChange={this.handleChange}      
+                onChange={this.handleChange} 
+                required     
               />
             </div>
             <div className="form-group">
@@ -156,10 +157,11 @@ class TicketView extends Component {
               <input
                 className="form-control"
                 name="ticketOwner"
-                type="t"
-                placeholder="Email"
+                type="text"
+                placeholder="Assignee"
                 value={this.state.ticketOwner}
-                onChange={this.handleChange}      
+                onChange={this.handleChange}
+                required      
               />
             </div>
             <div className="form-group">
@@ -167,10 +169,11 @@ class TicketView extends Component {
               <input
                 className="form-control"
                 name="ticketStatus"
-                type="t"
-                placeholder="Email"
+                type="text"
+                placeholder="Status"
                 value={this.state.ticketStatus}
-                onChange={this.handleChange}      
+                onChange={this.handleChange} 
+                required     
               />
             </div>
             <div className="form-group">
@@ -183,7 +186,7 @@ class TicketView extends Component {
                 placeholder="Ticket Description"
                 value={this.state.ticketDescription}
                 onChange={this.handleChange}
-                
+                required
               >
               </textarea>
             </div>
