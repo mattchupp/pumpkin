@@ -20,8 +20,7 @@ class TicketsTable extends Component {
     super();
     this.state = {
       ticketsTable: [],
-      viewTicket: '5ecd82aff703f6027412ce05',
-      filterBy: 'Open'
+      viewTicket: '',
     }
 
     this.handleClick = this.handleClick.bind(this);
