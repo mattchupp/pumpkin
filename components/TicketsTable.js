@@ -22,11 +22,13 @@ class TicketsTable extends Component {
       ticketsTable: [],
       viewTicket: '',
       filterBy: 'Open',
+      key: 0
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.filterByOpen = this.filterByOpen.bind(this);
     this.filterByComplete = this.filterByComplete.bind(this);
+    this.reloadTable = this.reloadTable.bind(this);
     this.getId = this.getId.bind(this);
   }
 
@@ -58,6 +60,10 @@ class TicketsTable extends Component {
     this.setState({ filterBy: 'Complete'});
   }
 
+  reloadTable(event) {
+    this.componentDidMount()
+  }
+
   // Get the id of the row clicked and update the state
   // the state is passed to the id prop in <TicketView />
   // The key needs to be set there too because components 
@@ -79,9 +85,10 @@ class TicketsTable extends Component {
     // const ticketToView = <TicketView id={this.state.viewTicket} />;
 
     return (
-      <div>
+      <div key={this.state.key}>
         <button onClick={this.filterByOpen}>Open</button>
         <button onClick={this.filterByComplete}>Complete</button>
+        <button onClick={this.reloadTable}>Refresh</button>
         <table className="table table-striped table-bordered mt-3">
           <thead className="thead-dark">
             <tr>
