@@ -50,6 +50,7 @@ class TicketView extends Component {
     axios.patch(apiPatchId, patchData)
       .then(response => {
         console.log(response)
+        this.setState({ editing: false })
       })
       .catch(error => {
         console.log(error)
