@@ -10,6 +10,7 @@ class TicketView extends Component {
   constructor() {
     super(); 
     this.state = {
+      ticketId: '',
       ticketTitle: '',
       ticketDescription: '',
       ticketOwner: '',
@@ -18,6 +19,10 @@ class TicketView extends Component {
       ticketDate: ''
     }
   }
+
+  // When info is changed in ticket form and saved
+  // send patch request to api to update ticket
+
 
 
   // When component mounts get ticket information with ID that is passed through props.id
@@ -33,6 +38,7 @@ class TicketView extends Component {
 
       // Set state of each item
       let ticketResponse = { ...this.state };
+      ticketResponse.ticketId = response.data._id;
       ticketResponse.ticketTitle = response.data.ticket_title;
       ticketResponse.ticketDescription = response.data.ticket_description;
       ticketResponse.ticketOwner = response.data.ticket_owner;
