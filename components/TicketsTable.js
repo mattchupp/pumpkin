@@ -21,6 +21,7 @@ class TicketsTable extends Component {
     this.state = {
       ticketsTable: [],
       viewTicket: '',
+      filterBy: 'Open',
     }
 
     this.handleClick = this.handleClick.bind(this);
