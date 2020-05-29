@@ -1,6 +1,6 @@
 /* Show the tickets in a table */
 
-import TicketRow from './TicketRow';
+// import TicketRow from './TicketRow';
 import TicketView from '../components/TicketView';
 // import useSWR from 'swr';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import React, { Component } from 'react';
  [x] Change this from functional to class component
  [x] Change from swr to axios and get json when component mounts
  [ ] Allow each row to be selected and pass the id to ticketview
- [ ] Filtering buttons 
+ [x] Filtering buttons 
 */
 
 class TicketsTable extends Component {
@@ -20,13 +20,14 @@ class TicketsTable extends Component {
     super();
     this.state = {
       ticketsTable: [],
-      viewTicket: '5ecdb5a7f703f6027412ce08',
+      viewTicket: '5ecd82aff703f6027412ce05',
       filterBy: 'Open'
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.filterByOpen = this.filterByOpen.bind(this);
     this.filterByComplete = this.filterByComplete.bind(this);
+    this.getId = this.getId.bind(this);
   }
 
 
@@ -57,6 +58,16 @@ class TicketsTable extends Component {
     this.setState({ filterBy: 'Complete'});
   }
 
+  // Get the id of the row clicked and update the state
+  // the state is passed to the id prop in <TicketView />
+  // The key needs to be set there too because components 
+  // remount when a key is changed
+  getId(id) {
+    // console.log('id selected ' + id)
+    this.setState({viewTicket: id})
+    // console.log('new state ' + this.state.viewTicket)
+  }
+
   render() {
     let ticketsTable = this.state.ticketsTable;
     // console.log(ticketsTable)
@@ -64,6 +75,8 @@ class TicketsTable extends Component {
     let filteredTickets = ticketsTable.filter((ticket) => {
       return ticket.ticket_status.indexOf(this.state.filterBy) !== -1;
     })
+
+    // const ticketToView = <TicketView id={this.state.viewTicket} />;
 
     return (
       <div>
@@ -82,20 +95,20 @@ class TicketsTable extends Component {
           </thead>
           <tbody>
             {filteredTickets.map((ticket) => (
-              <TicketRow
-                key={ticket._id}
-                title={ticket.ticket_title}
-                description={ticket.ticket_description}
-                creator={ticket.ticket_creator}
-                assignee={ticket.ticket_owner}
-                date={ticket.date_created}
-                status={ticket.ticket_status}
-              />
+              <tr key={ticket._id}>
+                <th><a href="#" onClick={() => this.getId(ticket._id)}>{ticket.ticket_title}</a></th>
+                <td>{ticket.ticket_description}</td>
+                <td>{ticket.ticket_owner}</td>
+                <td>{ticket.ticket_creator}</td>
+                <td>{ticket.date_created}</td>
+                <td>{ticket.ticket_status}</td>
+              </tr>
             ))}
           </tbody>
-      </table>
-
-        <TicketView id={this.state.viewTicket}/>
+        </table>
+              
+        <TicketView key={this.state.viewTicket} id={this.state.viewTicket}/>
+        
       </div>
     )
   }

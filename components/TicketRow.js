@@ -1,5 +1,9 @@
 import react, { Component } from 'react'
 
+// CAN BE REMOVED, NO LONGER USING
+
+
+
 /*
  * Component for each row in the tickets table
 */
@@ -8,6 +12,12 @@ class TicketRow extends Component {
   // function handleClick(event) {
   //   alert('Clicked!')
   // }
+
+  // getId(id) {
+  //   // this.setState({viewTicket: id})
+  //   alert('clicked!')
+  // }
+
   render() {
     return (
       <tr>
