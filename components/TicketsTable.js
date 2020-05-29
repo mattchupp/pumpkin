@@ -21,8 +21,8 @@ class TicketsTable extends Component {
     this.state = {
       ticketsTable: [],
       viewTicket: '',
-      filterBy: 'Open',
-      key: 0
+      filterBy: 'Open'
+      // key: 0
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -85,7 +85,8 @@ class TicketsTable extends Component {
     // const ticketToView = <TicketView id={this.state.viewTicket} />;
 
     return (
-      <div key={this.state.key}>
+      <div> {/* key={this.state.key}> */}
+        <div className="mt-3"></div>
         <button onClick={this.filterByOpen}>Open</button>
         <button onClick={this.filterByComplete}>Complete</button>
         <button onClick={this.reloadTable}>Refresh</button>
@@ -96,7 +97,7 @@ class TicketsTable extends Component {
               <th>Description</th>
               <th>Assignee</th>
               <th>Creator</th>
-              <th>Date Created</th>
+              {/* <th>Date Created</th> */}
               <th>Status</th>
             </tr>
           </thead>
@@ -107,7 +108,7 @@ class TicketsTable extends Component {
                 <td>{ticket.ticket_description}</td>
                 <td>{ticket.ticket_owner}</td>
                 <td>{ticket.ticket_creator}</td>
-                <td>{ticket.date_created}</td>
+                {/* <td>{ticket.date_created}</td> */}
                 <td>{ticket.ticket_status}</td>
               </tr>
             ))}
