@@ -47,20 +47,20 @@ class TicketsTable extends Component {
     
   }
 
-  handleClick(event) {
+  handleClick() {
     alert('Hello, you clicked!')
   }
 
-  filterByOpen(event) {
+  filterByOpen() {
     this.setState({ filterBy: 'Open'});
     // console.log('pressed')
   }
 
-  filterByComplete(event) {
+  filterByComplete() {
     this.setState({ filterBy: 'Complete'});
   }
 
-  reloadTable(event) {
+  reloadTable() {
     this.componentDidMount()
   }
 

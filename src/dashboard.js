@@ -1,7 +1,8 @@
 // import Head from 'next/head';
 import TicketsTable from './components/TicketsTable.js';
 // import { UserProvider, useFetchUser } from '../utils/user';
-import NavBar from '../components/NavBar.js';
+import NavBar from './components/NavBar.js';
+import React from 'react';
 // import Link from 'next/link'
 
 

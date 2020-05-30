@@ -1,14 +1,15 @@
-import Link from 'next/link';
+// import Link from 'next/link';
+import React from 'react';
 
 export default function NavBar(props) {
   return (
     <nav className="navbar bg-dark navbar-dark">
-      <Link href="/dashboard"><a className="navbar-brand">Pumpkin</a></Link>
+      {/* <Link href="/dashboard"><a className="navbar-brand">Pumpkin</a></Link> */}
       <div className="d-flex justify-content-end" id="navbarNavDropdown">
         <ul className="navbar-nav">   
           <li className="nav-item nav-link">{props.user}</li>
           <li className="nav-item">
-            <Link href="/api/logout"><a className="nav-link">Sign Out</a></Link>
+            {/* <Link href="/api/logout"><a className="nav-link">Sign Out</a></Link> */}
           </li>            
         </ul>
       </div>

@@ -28,7 +28,7 @@ class TicketView extends Component {
 
   // When info is changed in ticket form and saved
   // send patch request to api to update ticket
-  handleSubmit() {
+  handleSubmit(event) {
     event.preventDefault(); 
 
     // Because this.state isn't the same schema as the db
