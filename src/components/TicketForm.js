@@ -69,7 +69,7 @@ class TicketForm extends Component {
       'margin': '0px auto'
     }
 
-    if(this.state.submitted == true) {
+    if(this.state.submitted === true) {
       return (
         <Redirect to="/success" />
       ) 
