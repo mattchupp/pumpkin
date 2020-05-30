@@ -2,6 +2,8 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Dashboard from './dashboard'; 
+import NewTicket from './newticket';
+import Success from './success';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +20,12 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/new-ticket">
+            <NewTicket />
+          </Route>
+          <Router path="/success">
+            <Success />
+          </Router>
 
         </Switch>
       </Router>
