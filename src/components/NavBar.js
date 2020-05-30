@@ -11,7 +11,7 @@ export default function NavBar(props) {
   return (
     
     <nav className="navbar bg-dark navbar-dark">
-      <Link to="/dashboard"><a className="navbar-brand">Pumpkin</a></Link>
+      <Link to="/dashboard"><span className="navbar-brand">Pumpkin</span></Link>
       <div className="d-flex justify-content-end" id="navbarNavDropdown">
         <ul className="navbar-nav">   
           <li className="nav-item" style={name}>{props.user}</li>
