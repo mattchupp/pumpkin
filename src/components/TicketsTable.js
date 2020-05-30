@@ -2,6 +2,7 @@
 
 // import TicketRow from './TicketRow';
 import TicketView from '../components/TicketView';
+
 // import useSWR from 'swr';
 import axios from 'axios';
 import React, { Component } from 'react';
@@ -32,9 +33,8 @@ class TicketsTable extends Component {
     this.getId = this.getId.bind(this);
   }
 
-
-  componentDidMount() {
-
+  // method for fetching tickets
+  fetchTickets() {
     axios.get('http://localhost:4000/tickets')
     .then(response => {
       // console.log(response)
@@ -44,11 +44,14 @@ class TicketsTable extends Component {
     .catch(error => {
       console.log(error)
     })
-    
+  }
+
+  componentDidMount() {
+    this.fetchTickets();  
   }
 
   handleClick() {
-    alert('Hello, you clicked!')
+    console.log('Hello, you clicked!')
   }
 
   filterByOpen() {
@@ -61,7 +64,7 @@ class TicketsTable extends Component {
   }
 
   reloadTable() {
-    this.componentDidMount()
+    this.fetchTickets()
   }
 
   // Get the id of the row clicked and update the state
@@ -115,7 +118,7 @@ class TicketsTable extends Component {
           </tbody>
         </table>
               
-        <TicketView key={this.state.viewTicket} id={this.state.viewTicket}/>
+        <TicketView key={this.state.viewTicket} id={this.state.viewTicket} fetchTickets={this.fetchTickets}/>
         
       </div>
     )
