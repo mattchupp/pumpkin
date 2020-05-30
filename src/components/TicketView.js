@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import TicketsTable from './TicketsTable';
+// import TicketsTable from './TicketsTable';
 
 /*
   This will display information about each ticket when selected from the table
@@ -51,7 +51,7 @@ class TicketView extends Component {
       .then(response => {
         console.log(response)
         this.setState({ editing: false })
-        this.props.fetchTickets();
+        // this.props.fetchTickets();
       })
       .catch(error => {
         console.log(error)

@@ -33,6 +33,10 @@ class TicketForm extends Component {
     })
   }
 
+  // componentDidMount() {
+  //   console.log('Component mounted');
+  // }
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -54,6 +58,7 @@ class TicketForm extends Component {
         console.log(response);
         // return (<Redirect to="/success" />)
         this.setState({ submitted: true })
+        
       })
       .catch(error => {
         console.log(error)

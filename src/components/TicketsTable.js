@@ -85,6 +85,8 @@ class TicketsTable extends Component {
       return ticket.ticket_status.indexOf(this.state.filterBy) !== -1;
     })
 
+    // const fetchTickets = this.fetchTickets(); 
+
     // const ticketToView = <TicketView id={this.state.viewTicket} />;
 
     return (
@@ -118,7 +120,7 @@ class TicketsTable extends Component {
           </tbody>
         </table>
               
-        <TicketView key={this.state.viewTicket} id={this.state.viewTicket} fetchTickets={this.fetchTickets}/>
+        <TicketView key={this.state.viewTicket} id={this.state.viewTicket} />
         
       </div>
     )
