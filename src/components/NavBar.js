@@ -1,13 +1,20 @@
 // import Link from 'next/link';
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export default function NavBar(props) {
+  const name = {
+    'color': 'white'
+  }
+
+
   return (
+    
     <nav className="navbar bg-dark navbar-dark">
-      {/* <Link href="/dashboard"><a className="navbar-brand">Pumpkin</a></Link> */}
+      <Link to="/dashboard"><a className="navbar-brand">Pumpkin</a></Link>
       <div className="d-flex justify-content-end" id="navbarNavDropdown">
         <ul className="navbar-nav">   
-          <li className="nav-item nav-link">{props.user}</li>
+          <li className="nav-item" style={name}>{props.user}</li>
           <li className="nav-item">
             {/* <Link href="/api/logout"><a className="nav-link">Sign Out</a></Link> */}
           </li>            
