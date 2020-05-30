@@ -1,8 +1,9 @@
-import { react, Component } from 'react';
-import Head from 'next/head';
+import React, { Component } from 'react';
+// import Head from 'next/head';
 // import useSWR, { mutate } from 'swr';
 import axios from 'axios';
-import Router from 'next/router';
+import { Redirect } from 'react-router-dom';
+// import Router from 'next/router';
 
 
 class TicketForm extends Component {
@@ -11,7 +12,8 @@ class TicketForm extends Component {
     this.state = {
       ticketTitle: '',
       ticketDescription: '',
-      ticketCreator: ''
+      ticketCreator: '',
+      submitted: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -49,8 +51,9 @@ class TicketForm extends Component {
     // after successful submit redirect to a success page
     axios.post('http://localhost:4000/tickets', postData)
       .then(response => {
-        console.log(response)
-        Router.push('/success')
+        console.log(response);
+        // return (<Redirect to="/success" />)
+        this.setState({ submitted: true })
       })
       .catch(error => {
         console.log(error)
@@ -64,6 +67,12 @@ class TicketForm extends Component {
     const formStyle = {
       'maxWidth': '500px',
       'margin': '0px auto'
+    }
+
+    if(this.state.submitted == true) {
+      return (
+        <Redirect to="/success" />
+      ) 
     }
 
     return (
