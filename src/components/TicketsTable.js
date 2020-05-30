@@ -2,7 +2,7 @@
 
 // import TicketRow from './TicketRow';
 import TicketView from '../components/TicketView';
-
+import styled from 'styled-components';
 // import useSWR from 'swr';
 import axios from 'axios';
 import React, { Component } from 'react';
@@ -15,6 +15,25 @@ import React, { Component } from 'react';
  [x] Filtering buttons 
 */
 
+
+/*  Styled Components  */
+
+// title button in the table for bringing up the view
+const ViewTicketButton = styled.button`
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background: none;
+  color: #000;
+  cursor: pointer;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+`;  
+
 class TicketsTable extends Component {
 
   constructor() {
@@ -26,7 +45,7 @@ class TicketsTable extends Component {
       // key: 0
     }
 
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
     this.filterByOpen = this.filterByOpen.bind(this);
     this.filterByComplete = this.filterByComplete.bind(this);
     this.reloadTable = this.reloadTable.bind(this);
@@ -50,9 +69,9 @@ class TicketsTable extends Component {
     this.fetchTickets();  
   }
 
-  handleClick() {
-    console.log('Hello, you clicked!')
-  }
+  // handleClick() {
+  //   console.log('Hello, you clicked!')
+  // }
 
   filterByOpen() {
     this.setState({ filterBy: 'Open'});
@@ -77,6 +96,8 @@ class TicketsTable extends Component {
     // console.log('new state ' + this.state.viewTicket)
   }
 
+  
+
   render() {
     let ticketsTable = this.state.ticketsTable;
     // console.log(ticketsTable)
@@ -85,6 +106,7 @@ class TicketsTable extends Component {
       return ticket.ticket_status.indexOf(this.state.filterBy) !== -1;
     })
 
+    
     // const fetchTickets = this.fetchTickets(); 
 
     // const ticketToView = <TicketView id={this.state.viewTicket} />;
@@ -109,7 +131,7 @@ class TicketsTable extends Component {
           <tbody>
             {filteredTickets.map((ticket) => (
               <tr key={ticket._id}>
-                <th><a href="#" onClick={() => this.getId(ticket._id)}>{ticket.ticket_title}</a></th>
+                <th><ViewTicketButton onClick={() => this.getId(ticket._id)}>{ticket.ticket_title}</ViewTicketButton></th>
                 <td>{ticket.ticket_description}</td>
                 <td>{ticket.ticket_owner}</td>
                 <td>{ticket.ticket_creator}</td>
