@@ -4,13 +4,16 @@ import './App.css';
 import Dashboard from './pages/dashboard'; 
 import NewTicket from './pages/newticket';
 import Success from './pages/success';
+import Profile from './components/profile';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   // Link
 } from "react-router-dom";
 import { useAuth0 } from "./react-auth0-spa";
+import history from "./utils/history";
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             
@@ -36,9 +39,10 @@ function App() {
           <Route exact path="/new-ticket">
             <NewTicket />
           </Route>
-          <Router exact path="/success">
+          <Route exact path="/success">
             <Success />
-          </Router>
+          </Route>
+          <PrivateRoute path="/profile" component={Profile} />
 
         </Switch>
       </Router>
