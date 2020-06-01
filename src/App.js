@@ -1,9 +1,9 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Dashboard from './pages/dashboard'; 
-import NewTicket from './pages/newticket';
-import Success from './pages/success';
+import Dashboard from './pages/Dashboard'; 
+import NewTicket from './pages/Newticket';
+import Success from './pages/Success';
 import Profile from './components/Profile';
 import {
   Router,
