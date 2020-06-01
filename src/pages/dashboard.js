@@ -9,45 +9,20 @@ import React from 'react';
 
 export default function Dashboard () {
 
- 
 
+  return (
 
-  /*
-  * If user is signed in, pull from tickets api and return tickets
-  * Else, show nothing and require that the user signs in
-  */
-  // if(user) {
+    <div>
 
-    return (
-      <div>
+      <NavBar user="Matt"/>
 
-        <NavBar user="Matt"/>
-
-        <div className="container-fluid">
-          <TicketsTable />
-
-        </div>
+      <div className="container-fluid">
+        <TicketsTable />
 
       </div>
-    )
-  // } else {
-  //   return (
-  //     <>
-  //     <Head>
-  //         <title>Pumpkin | Dashboard</title>
-  //         <link
-  //           rel="stylesheet"
-  //           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  //           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-  //           crossorigin="anonymous"
-  //         />  
-  //       </Head>
-  //     <div className="container">
-  //       <p className="text-center mt-3">Please <Link href="/api/login"><a>sign in</a></Link></p>
-  //     </div>
-  //     </>
-  //   )
-  // }
+
+    </div>
+  )
 
 
 }
