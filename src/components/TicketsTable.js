@@ -41,13 +41,15 @@ class TicketsTable extends Component {
     this.state = {
       ticketsTable: [],
       viewTicket: '',
-      filterBy: 'Open'
+      filterBy: 'Open',
+      // filterCategory: 'Status'
       // key: 0
     }
 
     // this.handleClick = this.handleClick.bind(this);
     this.filterByOpen = this.filterByOpen.bind(this);
     this.filterByComplete = this.filterByComplete.bind(this);
+    // this.filterByUnassigned = this.filterByUnassigned.bind(this);
     this.reloadTable = this.reloadTable.bind(this);
     this.getId = this.getId.bind(this);
   }
@@ -75,12 +77,18 @@ class TicketsTable extends Component {
 
   filterByOpen() {
     this.setState({ filterBy: 'Open'});
+    // this.setState({ filterCategory: 'Status'})
     // console.log('pressed')
   }
 
   filterByComplete() {
     this.setState({ filterBy: 'Complete'});
+    // this.setState({ filterCategory: 'Status'})
   }
+
+  // filterByUnassigned() {
+  //   this.setState({ filterBy: 'Unassigned'});
+  // }
 
   reloadTable() {
     this.fetchTickets()
@@ -101,7 +109,7 @@ class TicketsTable extends Component {
   render() {
     let ticketsTable = this.state.ticketsTable;
     // console.log(ticketsTable)
-
+    
     let filteredTickets = ticketsTable.filter((ticket) => {
       return ticket.ticket_status.indexOf(this.state.filterBy) !== -1;
     })
@@ -116,6 +124,7 @@ class TicketsTable extends Component {
         <div className="mt-3"></div>
         <button className="btn btn-info mr-3" onClick={this.filterByOpen}>Open</button>
         <button className="btn btn-info mr-3" onClick={this.filterByComplete}>Complete</button>
+        {/* <button className="btn btn-info mr-3" onClick={this.filterByUnassigned}>Unassigned</button> */}
         <button className="btn btn-success" onClick={this.reloadTable}>Refresh</button>
         <table className="table table-striped table-bordered mt-3">
           <thead className="thead-dark">
