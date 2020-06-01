@@ -22,6 +22,7 @@ class TicketView extends Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -56,6 +57,22 @@ class TicketView extends Component {
       .catch(error => {
         console.log(error)
       })
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    if(window.confirm('You are about to delete this ticket. Confirm?')) {
+
+      const apiDeleteId = 'http://localhost:4000/tickets/' + this.state.ticketId; 
+
+      axios.delete(apiDeleteId)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error); 
+        })
+    }
   }
 
   /*
@@ -204,6 +221,12 @@ class TicketView extends Component {
                 className="btn btn-success"
                 type="submit"
                 value="Save Changes"
+              />
+              <input
+                className="btn btn-danger ml-3"
+                type="submit"
+                value="Delete Ticket"
+                onClick={this.handleDelete}
               />
             </div>
           </form>
