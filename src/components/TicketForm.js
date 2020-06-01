@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import Head from 'next/head';
-// import useSWR, { mutate } from 'swr';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-// import Router from 'next/router';
+// import { useAuth0 } from "../react-auth0-spa";
 
 
 class TicketForm extends Component {

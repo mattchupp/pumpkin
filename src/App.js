@@ -4,7 +4,7 @@ import './App.css';
 import Dashboard from './pages/dashboard'; 
 import NewTicket from './pages/newticket';
 import Success from './pages/success';
-import Profile from './components/profile';
+import Profile from './components/Profile';
 import {
   Router,
   Switch,
@@ -18,7 +18,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const { loading } = useAuth0();
 
   if (loading) {
@@ -33,9 +33,17 @@ function App() {
           <Route exact path="/">
             
           </Route>
+          
+
           <PrivateRoute exact path="/dashboard">
             <Dashboard />
           </PrivateRoute>
+          
+          {/* 
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          */}
           <Route exact path="/new-ticket">
             <NewTicket />
           </Route>
@@ -46,13 +54,14 @@ function App() {
 
         </Switch>
       </Router>
-
+      
+    {/*
       {!isAuthenticated && (
             <button onClick={() => loginWithRedirect({})}>Log in</button>
             )}
 
             {isAuthenticated && <button onClick={() => logout()}>Log out</button>} 
-      
+    */ }
       
     </div>
   );

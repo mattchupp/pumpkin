@@ -1,5 +1,5 @@
 // import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "../react-auth0-spa";
 // import history from "./utils/history";
@@ -14,16 +14,18 @@ export default function NavBar(props) {
   // check if authenticated
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   //  const { loading } = useAuth0();
-  // console.log(user.name)
+  // const [userName, setUsername] = useState(user.name);
+  
+  // console.log(userName)
 
 
   return (
-    
+    // console.log(user.name)
     <nav className="navbar bg-dark navbar-dark">
       <Link to="/dashboard"><span className="navbar-brand">Pumpkin</span></Link>
       <div>
         <ul className="navbar-nav">   
-          <li className="nav-item" style={name}>{ /* user.name */}</li>
+          <li className="nav-item" style={name}></li>
           <li className="nav-item">
             {!isAuthenticated && (
             <button onClick={() => loginWithRedirect({})}>Log in</button>

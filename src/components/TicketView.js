@@ -18,7 +18,8 @@ class TicketView extends Component {
       ticketStatus: '',
       ticketDate: '',
       editing: false,
-      submitDisabled: true
+      // submitDisabled: true,
+      // active: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -129,7 +130,7 @@ class TicketView extends Component {
     // console.log(this.state.ticket)
 
     // if this.state.editing is false then display as text
-    if(!this.state.editing) {
+    if(!this.state.editing && this.state.ticketId !== '') {
       return (
         <div>
           <hr />
