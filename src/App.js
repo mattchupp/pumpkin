@@ -33,9 +33,9 @@ function App() {
           <Route exact path="/">
             
           </Route>
-          <Route exact path="/dashboard">
+          <PrivateRoute exact path="/dashboard">
             <Dashboard />
-          </Route>
+          </PrivateRoute>
           <Route exact path="/new-ticket">
             <NewTicket />
           </Route>
@@ -46,12 +46,13 @@ function App() {
 
         </Switch>
       </Router>
-      
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
-      )}
 
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+      {!isAuthenticated && (
+            <button onClick={() => loginWithRedirect({})}>Log in</button>
+            )}
+
+            {isAuthenticated && <button onClick={() => logout()}>Log out</button>} 
+      
       
     </div>
   );
